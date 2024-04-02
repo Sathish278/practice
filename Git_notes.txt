@@ -1,0 +1,34 @@
+
+          
+Git is a open source version controlled system
+--> it is a centarlized version control system
+
+Git hub---> it a cloud or central system
+Git---> it is a local system
+
+centarlized project-upstream https://github.com/"projectpath"
+Orgin-Own account            https://github.com/Sathish278/practice
+
+unstaged>staged>commit>push
+	   add    commit push
+
+Git commands
+git config --global user.name "username"
+git config --global user.email "email-Id"
+git init
+git status
+git add <file_name> (or)
+git add . (or)
+git add -a (or)
+git add -all
+git commit -m "message"
+git remote add orgin <repo_path>
+git push -m orgin <branch_name>
+ 
+git clone <repo_path>
+git branch 
+git branch -D <branch_name> --> to delete a branch
+git log
+git pull
+git checkout <branch_name>
+git merge
