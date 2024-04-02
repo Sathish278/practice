@@ -30,5 +30,5 @@ git branch
 git branch -D <branch_name> --> to delete a branch
 git log
 git pull
-git checkout <branch_name>
+git checkout <branch_name>  ---> change branch
 git merge
