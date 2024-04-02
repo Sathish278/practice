@@ -23,7 +23,7 @@ git add -a (or)
 git add -all
 git commit -m "message"
 git remote add orgin <repo_path>
-git push -m orgin <branch_name>
+git push -u origin <branch_name>
  
 git clone <repo_path>
 git branch 
