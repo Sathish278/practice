@@ -1,0 +1,19 @@
+---
+- name: Install ngnix
+	hosts: web_servers
+    become: yes # to excute with sudo privileges
+	tasks:
+	-name: update cache
+	  apt:
+		update_cache: yes
+	-name: Install nginx
+	  apt:
+	    name: nginx
+		state: present
+	-name: start service
+	  service:
+		name: nginx
+		state: started
+		enabled: yes
+		   
+		   
