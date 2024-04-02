@@ -1,13 +1,13 @@
 
           
-Git is a open source version control system
---> it is a centarlized version control system
+Git is an open-source version control system
+--> It is a centralized version control system
 
 Git hub---> it a cloud or central system
-Git---> it is a local system
+Git---> It is a local system
 
-centarlized project-upstream https://github.com/"projectpath"
-Orgin-Own account            https://github.com/Sathish278/practice
+centralized project-upstream https://github.com/<project_path>
+Origin-Own account            https://github.com/Sathish278/practice
 
 unstaged>staged>commit>push
 	   add    commit push
@@ -22,7 +22,7 @@ git add . (or)
 git add -a (or)
 git add -all
 git commit -m "message"
-git remote add orgin <repo_path>
+git remote add origin <repo_path>
 git push -u origin <branch_name>
  
 git clone <repo_path>
