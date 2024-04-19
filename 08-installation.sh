@@ -3,7 +3,7 @@
 USERID=$(id -u)
 
 if [ $USERID -ne 0 ]; then
-    echo "run with sudo user"
+    echo "Please run with sudo user"
     exit 1 #manually exiting from the script
 else
     echo "You are the super user...continuing to remaining steps"
