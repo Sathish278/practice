@@ -22,10 +22,10 @@ fi
 
 dnf install mysql -y
 
-status $1 "mysql"
+status $? "mysql"
 
 dnf install ml -y
 
-status $1 "mysql"
+status $? "mysql"
 
 
