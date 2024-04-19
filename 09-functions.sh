@@ -4,12 +4,13 @@ USERID=$(id -u) # to find the user id / -u for user
 Timestamp=$(date +%F-%H-%M-%S)
 FileName=$(echo $0 |cut -d "." -f1)
 Logfile=/tmp/$FileName-$Timestamp.log
+CT=$(date +%F)
 R='\e[0;31m'
 G='\e[0;32m'
 Y='\e[0;33m'
 Bl='\e[0;34m'
 NC='\e[0m'
-echo -e " Script started at: $Y $Timestamp $NC"
+echo -e " Script started at: $Y $(date +%F) $NC"
 status (){
     if [ $1 -ne 0 ]; then
         echo -e "$bl $2 $NC installation.... $R failed $NC"
