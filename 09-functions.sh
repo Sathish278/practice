@@ -3,7 +3,7 @@
 USERID=$(id -u) # to find the user id / -u for user
 Timestamp=$(date +%F-%H-%M-%S)
 FileName=$(echo $0 |cut -d "." -f1)
-Logfile=/tmp/var/$FileName-$Timestamp.log
+Logfile=/tmp/$FileName-$Timestamp.log
 status (){
     if [ $1 -ne 0 ]; then
         echo "$2 installation.... failed"
