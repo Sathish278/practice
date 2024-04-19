@@ -2,7 +2,7 @@
 
 USERID=$(id -u) # to find the user id / -u for user
 Timestamp=$(date +%F-%H-%M-%S)
-FileName=$($0 |cut -d "." -f1)
+FileName=$(echo $0 |cut -d "." -f1)
 Logfile=/tmp/var/$FileName-$Timestamp.log
 status (){
     if [ $1 -ne 0 ]; then
