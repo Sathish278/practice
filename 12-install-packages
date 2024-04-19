@@ -23,7 +23,7 @@ for i in $@
 do 
     echo "package to install : $i" 
     dnf install $i &>>$Logfile
-    if [$? -eq 0];then
+    if [ $? -eq 0 ];then
         echo -e "$G $i $NC already installed"
     else
         echo "$R $i $NC need to be install" 
