@@ -11,6 +11,15 @@ Y='\e[0;33m'
 Bl='\e[0;34m'
 NC='\e[0m'
 echo -e " Script started at: $Y $(date) or $CT $NC"
+status (){
+    if [ $1 -ne 0 ]; then
+        echo -e "$bl $2 $NC installation.... $R failed $NC"
+        exit 1
+    else
+        echo -e " $bl $2 $NC installation..... $G sucessed $NC"
+    fi
+
+}
 
 if [ $USERID -ne 0 ]; then
     echo -e "$R Please run with sudo user $NC"
@@ -22,7 +31,7 @@ fi
 for i in $@
 do 
     echo "package to install : $i" 
-    dnf install $i &>>$Logfile
+    dnf list install $i &>>$Logfile
     if [ $? -eq 0 ];then
         echo -e "$G $i $NC already installed"
     else
