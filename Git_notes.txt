@@ -43,6 +43,18 @@ git reset --hard  --> will remove file from staged area and workspace
 git revert <commit ID>  ---> remote file from workspace and staged area and in local repo it will create a new commit file as the file is reverted
 git clean -n or -f (force)   --> to remove all untracked files
 
+----------------------------------------------------------------------------
+Common Options:
+-h, --help: Display help information for the command.
+-v, --verbose: Show more detailed output.
+-q, --quiet: Suppress output, making the command quieter.
+-f, --force: Force the operation to execute, even if it may cause data loss.
+-n, --dry-run: Simulate the operation without actually executing it.
+-i, --interactive: Run the command in interactive mode, prompting for user input.
+-y: Automatically answer yes to prompts.
+--no-edit: Skip the commit message editor when performing a commit.
+--all: Perform the operation on all relevant items.
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -173,14 +185,3 @@ options>] [-l | -n] [<pattern>...]`
 - **git help**: Display help information about Git commands.
   - **Syntax**: `git help [<command>]`
 
-----------------------------------------------------------------------------
-Common Options:
--h, --help: Display help information for the command.
--v, --verbose: Show more detailed output.
--q, --quiet: Suppress output, making the command quieter.
--f, --force: Force the operation to execute, even if it may cause data loss.
--n, --dry-run: Simulate the operation without actually executing it.
--i, --interactive: Run the command in interactive mode, prompting for user input.
--y: Automatically answer yes to prompts.
---no-edit: Skip the commit message editor when performing a commit.
---all: Perform the operation on all relevant items.
