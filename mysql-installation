@@ -49,5 +49,5 @@ status $? "enabling....$Inst"
 systemctl start mysqld &>>$Logfile
 status $? " staring....$Inst"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>"$Logfile"
+sudo mysql_secure_installation --set-root-pass ExpenseApp@1 &>>"$Logfile"
 status $? "Securing MySQL installation"
