@@ -37,6 +37,6 @@ do
     else
         echo -e "$R $i $NC need to be install"
         dnf install $i -y &>>$Logfile
-        $status $? " $i" 
+        status $? "$i" 
     fi
 done
