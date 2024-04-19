@@ -4,11 +4,11 @@ USERID=$(id -u) # to find the user id / -u for user
 
 status (){
     if [ $1 -ne 0 ]; then
-    echo "$2 installation.... failed"
-    exit 1
-else
-    echo " $2 installation..... sucessed"
-fi
+        echo "$2 installation.... failed"
+        exit 1
+    else
+        echo " $2 installation..... sucessed"
+    fi
 
 }
 
