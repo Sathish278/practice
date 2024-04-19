@@ -10,7 +10,7 @@ G='\e[0;32m'
 Y='\e[0;33m'
 Bl='\e[0;34m'
 NC='\e[0m'
-echo -e " Script started at: $Y $(date +%F) $NC"
+echo -e " Script started at: $Y $(date) or $CT $NC"
 status (){
     if [ $1 -ne 0 ]; then
         echo -e "$bl $2 $NC installation.... $R failed $NC"
