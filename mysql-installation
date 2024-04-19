@@ -2,21 +2,20 @@
 
 USERID=$(id -u) # to find the user id / -u for user
 
-#Timestamp 
+#Timestamp
 Timestamp=$(date +%F-%H-%M-%S)
-FileName=$(echo $0 |cut -d "." -f1)
+FileName=$(echo $0 | cut -d "." -f1)
 Logfile=/tmp/$FileName-$Timestamp.log
-CT=$(date +%F)
 #colour
 R='\e[0;31m'
 G='\e[0;32m'
 Y='\e[0;33m'
 Bl='\e[0;34m'
 NC='\e[0m'
-echo -e " Script started at: $Y $(date) or $CT $NC"
 
+Inst=$1 # which application has to install user has to give while executing the script
 #validation or status function
-status (){
+status() {
     if [ $1 -ne 0 ]; then
         echo -e "$bl $2 $NC installation.... $R failed $NC"
         exit 1
@@ -34,15 +33,20 @@ else
     echo -e "$G You are the super user $NC ...continuing to remaining steps"
 fi
 
-for i in $@
-do 
-    echo "package to install : $i" 
-    dnf list install $i &>>$Logfile
-    if [ $? -eq 0 ];then
-        echo -e "$G $i $NC already installed"
-    else
-        echo -e "$R $i $NC need to be install"
-        dnf install $i -y &>>$Logfile
-        status $? "$i" 
-    fi
-done
+dnf list installed | grep -i $Inst &>>$Logfile
+if [ $? -eq 0 ]; then
+    echo -e "$G $Inst $NC already installed"
+else
+    echo -e "$R $Inst $NC need to be install"
+    dnf install $Inst -y &>>$Logfile
+    status $? "$Inst...installing"
+fi
+
+systemctl enable mysqld &>>$Logfile
+status $? "enabling....$Inst"
+
+systemctl start mysqld &>>$Logfile
+status $? " staring....$Inst"
+
+mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$Logfile
+Status $? "setting root-pass"
