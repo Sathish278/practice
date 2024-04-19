@@ -1,20 +1,20 @@
 
           
-Git is an open-source version control system
---> It is a centralized version control system
+Git is a open source version controlled system
+--> it is a centarlized version control system
 
 Git hub---> it a cloud or central system
-Git---> It is a local system
+Git---> it is a local system
 
-centralized project-upstream https://github.com/<project_path>
-Origin-Own account            https://github.com/Sathish278/practice
+centarlized project-upstream https://github.com/"projectpath"
+Orgin-Own account            https://github.com/Sathish278/practice
 
 unstaged>staged>commit>push
 	   add    commit push
 
 Git commands
 git config --global user.name "username"
-git config --global user.email "email-Id"
+git config --global user.email "ravivenkat508@gmail.com"
 git init
 git status
 git add <file_name> (or)
@@ -28,85 +28,14 @@ git push -u origin <branch_name>
 git clone <repo_path>
 git branch 
 git branch -D <branch_name> --> to delete a branch
-git log
-git pull  --> combination of git merge and git fetch
-git checkout <branch_name>  ---> change branch
+git log --> shows commits
+git log --online ---> it will show short form of commits
+git log --grep "word"
+git show <commit ID>  --> commit info
+git pull
+git checkout <branch_name>
 git merge
-git fetch
-
---------------------------------------------------------------
-Notes
-
-Understanding Git Basics:
-
-Git is a distributed version control system used for tracking changes in source code during software development.
-Learn the basic Git commands such as git init, git add, git commit, git push, git pull, and git clone.
-
-Setting Up Git:
-Install Git on your local machine. You can download it from the official Git website: git-scm.com.
-Configure Git with your name and email address using git config.
-
-Creating a GitHub Account:
-Sign up for a GitHub account if you haven't already: github.com.
-GitHub is a platform built on top of Git that provides additional features such as collaboration, issue tracking, and project management.
-
-Creating a Repository:
-In GitHub, a repository (or repo) is where your project's source code and related files are stored.
-Create a new repository by clicking on the "New" button on the GitHub homepage.
-
-Cloning a Repository:
-Clone a repository to your local machine using git clone <repository URL>.
-This creates a local copy of the repository on your computer, allowing you to work on the code locally.
-
-Making Changes:
-Make changes to files in your local repository using your preferred code editor.
-Use git status to check the status of your changes.
-Use git add to stage changes for commit.
-
-Committing Changes:
-Commit your changes using git commit -m "Your commit message".
-A commit is a snapshot of your changes at a specific point in time.
-
-Pushing Changes to GitHub:
-Push your commits to the remote repository on GitHub using git push.
-This makes your changes available to others who have access to the repository.
-
-------------------------------------------------------------------
-
-Commands detail explation
-
-git clone:
-Command: git clone <repository URL>
-Explanation: Clones a repository from GitHub to your local machine, creating a local copy of the repository along with its entire history and files.
-
-git push:
-Command: git push
-Explanation: Pushes your local commits to a remote repository on GitHub, updating the repository with your changes.
-
-git pull:
-Command: git pull
-Explanation: Fetches changes from a remote repository on GitHub and merges them into your local branch, ensuring your local repository is up-to-date with the remote.
-
-git branch:
-Command: git branch
-Explanation: Lists all local branches in your repository. Add a branch name to create a new branch or use -d to delete a branch.
-
-git checkout:
-Command: git checkout <branch name>
-Explanation: Switches to the specified branch. Use -b to create and switch to a new branch simultaneously.
-
-git merge:
-Command: git merge <branch name>
-Explanation: Merges changes from the specified branch into the current branch. This command is often used to integrate feature branches into the main branch.
-
-git fetch:
-Command: git fetch
-Explanation: Fetches changes from a remote repository without merging them into your local branch. It updates your remote tracking branches.
-
-git status:
-Command: git status
-Explanation: Shows the status of your working directory and staging area, indicating which files are modified, staged, or untracked.
-
-git commit:
-Command: git commit -m "Commit message"
-Explanation: Records changes to the repository, creating a new commit with a specified commit message describing the changes.
+git remote -v -->where git is connected(github-path)
+git ignore ---> create at file .gitignore and add the type of files you wanna ignore
+git reset <file name> or . ---> to delete files from stage area or added files or commit files
+git reset --hard  --> will remove file from staged area and workspace
