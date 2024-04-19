@@ -8,3 +8,4 @@ God=("RAM" "Shiva" "krishna")
 echo " first god is : ${God[0]}"
 echo " Second god is : ${God[1]}"
 echo " Third god is : ${God[2]}"
+echo " first god is : ${God[@]}"  # @ is for all --> it will print all god names
