@@ -54,10 +54,10 @@ dnf install "$APPLICATION" -y &>>"$LOGFILE"
 status $? "Installing $APPLICATION"
 
 # Enable and start MySQL service
-systemctl enable "$APPLICATION" &>>"$LOGFILE"
+systemctl enable mysqld &>>"$LOGFILE"
 status $? "Enabling $APPLICATION"
 
-systemctl start "$APPLICATION" &>>"$LOGFILE"
+systemctl start mysqld &>>"$LOGFILE"
 status $? "Starting $APPLICATION"
 
 # Secure MySQL installation
