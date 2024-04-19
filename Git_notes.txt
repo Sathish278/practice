@@ -14,7 +14,8 @@ unstaged>staged>commit>push
 
 Git commands
 git config --global user.name "username"
-git config --global user.email "ravivenkat508@gmail.com"
+git config --global user.email "useremail"
+git clone <repo_path>
 git init
 git status
 git add <file_name> (or)
@@ -39,3 +40,147 @@ git remote -v -->where git is connected(github-path)
 git ignore ---> create at file .gitignore and add the type of files you wanna ignore
 git reset <file name> or . ---> to delete files from stage area or added files or commit files
 git reset --hard  --> will remove file from staged area and workspace
+git revert <commit ID>  ---> remote file from workspace and staged area and in local repo it will create a new commit file as the file is reverted
+git clean -n or -f (force)   --> to remove all untracked files
+
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+### Configuration
+- **git config**: Set up Git configuration options.
+  - **Syntax**: `git config [--global] <key> [<value>]`
+  - **Options**:
+    - `--global`: Set the configuration for the current user.
+
+### Repository Creation
+- **git init**: Initialize a new Git repository.
+  - **Syntax**: `git init [<directory>]`
+
+- **git clone**: Clone a repository into a new directory.
+  - **Syntax**: `git clone [<options>] <repository> [<directory>]`
+  - **Options**:
+    - `--bare`: Clone a repository into a bare repository.
+    - `-b <branch>`, `--branch <branch>`: Clone a specific branch.
+
+### Snapshot Creation
+- **git add**: Add file contents to the index.
+  - **Syntax**: `git add [<options>] [--] <pathspec>...`
+  - **Options**:
+    - `-p`, `--patch`: Interactively choose hunks of patch.
+    - `-N`, `--intent-to-add`: Record only the fact that the path will be added later.
+
+- **git rm**: Remove files from the working tree and index.
+  - **Syntax**: `git rm [<options>] [--] <file>...`
+  - **Options**:
+    - `-f`, `--force`: Override the up-to-date check.
+    - `--cached`: Remove from the index, but not from the working tree.
+
+- **git mv**: Move or rename a file, directory, or symlink.
+  - **Syntax**: `git mv [<options>] <source> <destination>`
+
+### Snapshot Management
+- **git commit**: Record changes to the repository.
+  - **Syntax**: `git commit [<options>] [--] <pathspec>...`
+  - **Options**:
+    - `-m <message>`, `--message=<message>`: Use the given message as the commit message.
+    - `-a`, `--all`: Commit all changed files.
+    - `--amend`: Amend the last commit.
+
+- **git restore**: Restore working tree files.
+  - **Syntax**: `git restore [<options>] [--] <pathspec>...`
+  - **Options**:
+    - `-s`, `--source`: Use the contents of <source> to replace the contents of the paths.
+    - `-SW`, `--staged-with-worktree`: Restores both the index and the working tree.
+
+- **git reset**: Reset current HEAD to the specified state.
+  - **Syntax**: `git reset [<options>] [<commit>] [--] <paths>...`
+  - **Options**:
+    - `--hard`: Reset the index and the working tree.
+
+### Branching and Merging
+- **git branch**: List, create, or delete branches.
+  - **Syntax**: `git branch [<options>] [-r | -a] [--list] [<pattern>...]`
+  - **Options**:
+    - `-d`, `--delete`: Delete the specified branch.
+    - `-m`, `--move`: Move or rename a branch.
+
+- **git checkout**: Switch branches or restore working tree files.
+  - **Syntax**: `git checkout [<options>] <branch>`
+  - **Options**:
+    - `-b <new_branch>`, `--branch=<new_branch>`: Create a new branch and switch to it.
+    - `-f`, `--force`: Force checkout, overwriting local changes if necessary.
+
+- **git merge**: Join two or more development histories together.
+  - **Syntax**: `git merge [<options>] <commit>`
+  - **Options**:
+    - `--squash`: Produce a single commit when merging instead of a merge commit.
+
+- **git rebase**: Reapply commits on top of another base tip.
+  - **Syntax**: `git rebase [<options>] [--onto <newbase>] [<upstream>] [<branch>]`
+
+### Inspection and Comparison
+- **git status**: Show the working tree status.
+  - **Syntax**: `git status [<options>...]`
+
+- **git log**: Show commit logs.
+  - **Syntax**: `git log [<options>] [<revision range>] [[--] <path>...]`
+
+- **git diff**: Show changes between commits, commit and working tree, etc.
+  - **Syntax**: `git diff [<options>] [<commit>] [--] [<path>...]`
+
+### Collaboration
+- **git fetch**: Download objects and refs from another repository.
+  - **Syntax**: `git fetch [<options>] [<repository> [<refspec>...]]`
+
+- **git pull**: Fetch from and integrate with another repository or a local branch.
+  - **Syntax**: `git pull [<options>] [<repository> [<refspec>...]]`
+  - **Options**:
+    - `--rebase`: Rebase the current branch onto the upstream branch instead of merging.
+
+- **git push**: Update remote refs along with associated objects.
+  - **Syntax**: `git push [<options>] [<repository> [<refspec>...]]`
+  - **Options**:
+    - `-u`, `--set-upstream`: Set up tracking information for the branch being pushed.
+    - `--tags`: Push tags in addition to branches.
+
+### Repository Maintenance
+- **git clean**: Remove untracked files from the working tree.
+  - **Syntax**: `git clean [<options>]`
+
+- **git gc**: Cleanup unnecessary files and optimize the local repository.
+  - **Syntax**: `git gc [<options>]`
+
+- **git fsck**: Verify the integrity of the Git repository.
+  - **Syntax**: `git fsck [<options>]`
+
+### Tagging
+- **git tag**: Create, list, delete, or verify a tag object signed with GPG.
+  - **Syntax**: `git tag [<
+
+options>] [-l | -n] [<pattern>...]`
+  - **Options**:
+    - `-a`, `--annotate`: Create an annotated tag.
+
+### Submodules
+- **git submodule**: Initialize, update, or inspect submodules.
+  - **Syntax**: `git submodule [<options>]`
+
+### Stashing
+- **git stash**: Stash changes in the working directory.
+  - **Syntax**: `git stash [<options>]`
+
+### Help
+- **git help**: Display help information about Git commands.
+  - **Syntax**: `git help [<command>]`
+
+----------------------------------------------------------------------------
+Common Options:
+-h, --help: Display help information for the command.
+-v, --verbose: Show more detailed output.
+-q, --quiet: Suppress output, making the command quieter.
+-f, --force: Force the operation to execute, even if it may cause data loss.
+-n, --dry-run: Simulate the operation without actually executing it.
+-i, --interactive: Run the command in interactive mode, prompting for user input.
+-y: Automatically answer yes to prompts.
+--no-edit: Skip the commit message editor when performing a commit.
+--all: Perform the operation on all relevant items.
