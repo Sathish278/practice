@@ -4,7 +4,7 @@ Num=$1
 
 if [ $Num -gt 10]
 then    
-    echo "Given number$Num is greaten than 10"
+    echo "Given number $Num is greaten than 10"
 else
     echo " Given number $Num is less than 10"
 fi
