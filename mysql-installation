@@ -36,6 +36,7 @@ fi
 dnf list installed | grep -i $Inst &>>$Logfile
 if [ $? -eq 0 ]; then
     echo -e "$G $Inst $NC already installed"
+    exit 1
 else
     echo -e "$R $Inst $NC need to be install"
     dnf install $Inst -y &>>$Logfile
