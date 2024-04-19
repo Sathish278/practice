@@ -35,6 +35,8 @@ do
     if [ $? -eq 0 ];then
         echo -e "$G $i $NC already installed"
     else
-        echo -e "$R $i $NC need to be install" 
+        echo -e "$R $i $NC need to be install"
+        dnf install $i -y &>>$Logfile
+        $status $? " $i" 
     fi
 done
