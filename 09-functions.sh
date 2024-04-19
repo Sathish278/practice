@@ -24,4 +24,8 @@ dnf install mysql -y
 
 status $1 "mysql"
 
+dnf install mysqll -y
+
+status $1 "mysql"
+
 
