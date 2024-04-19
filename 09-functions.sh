@@ -1,7 +1,9 @@
 #!/bin/bash
 
 USERID=$(id -u) # to find the user id / -u for user
-
+Timestamp=$(date +%F-%H-%M-%S)
+FileName=$($0 |cut -d "." -f1)
+Logfile=/tmp/var/$FileName-$Timestamp.log
 status (){
     if [ $1 -ne 0 ]; then
         echo "$2 installation.... failed"
@@ -20,11 +22,11 @@ else
 fi
 
 
-dnf install mysql -y
+dnf install mysql -y &>>$Logfile
 
 status $? "mysql"
 
-dnf install ml -y
+dnf install ml -y &>>$Logfile
 
 status $? "mysql"
 
