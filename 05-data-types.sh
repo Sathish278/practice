@@ -30,10 +30,82 @@ num2=5
 sum=$((num1 + num2))
 difference=$((num1 - num2))
 
+
+# Arithmetic Expansion: Using $((...))
+# Perform addition
+result_add=$((5 + 3))
+echo "Addition Result: $result_add"  # Output: Addition Result: 8
+
+# Perform subtraction
+result_sub=$((10 - 4))
+echo "Subtraction Result: $result_sub"  # Output: Subtraction Result: 6
+
+# Perform multiplication
+result_mul=$((6 * 2))
+echo "Multiplication Result: $result_mul"  # Output: Multiplication Result: 12
+
+# Perform division
+result_div=$((20 / 4))
+echo "Division Result: $result_div"  # Output: Division Result: 5
+
+# Perform modulus
+result_mod=$((15 % 4))
+echo "Modulus Result: $result_mod"  # Output: Modulus Result: 3
+
+# Using expr command
+# Perform addition
+result_add_expr=$(expr 5 + 3)
+echo "Addition Result (expr): $result_add_expr"  # Output: Addition Result (expr): 8
+
+# Using double parentheses ((...))
+# Perform addition
+((result_add_double = 5 + 3))
+echo "Addition Result (( )): $result_add_double"  # Output: Addition Result (( )): 8
+
+# Perform subtraction
+((result_sub_double = 10 - 4))
+echo "Subtraction Result (( )): $result_sub_double"  # Output: Subtraction Result (( )): 6
+
+# Perform multiplication
+((result_mul_double = 6 * 2))
+echo "Multiplication Result (( )): $result_mul_double"  # Output: Multiplication Result (( )): 12
+
+# Perform division
+((result_div_double = 20 / 4))
+echo "Division Result (( )): $result_div_double"  # Output: Division Result (( )): 5
+
+# Perform modulus
+((result_mod_double = 15 % 4))
+echo "Modulus Result (( )): $result_mod_double"  # Output: Modulus Result (( )): 3
+
+# Using let command
+# Perform addition
+let result_add_let=5+3
+echo "Addition Result (let): $result_add_let"  # Output: Addition Result (let): 8
+
+# Perform subtraction
+let result_sub_let=10-4
+echo "Subtraction Result (let): $result_sub_let"  # Output: Subtraction Result (let): 6
+
+# Perform multiplication
+let result_mul_let=6*2
+echo "Multiplication Result (let): $result_mul_let"  # Output: Multiplication Result (let): 12
+
+# Perform division
+let result_div_let=20/4
+echo "Division Result (let): $result_div_let"  # Output: Division Result (let): 5
+
+# Perform modulus
+let result_mod_let=15%4
+echo "Modulus Result (let): $result_mod_let"  # Output: Modulus Result (let): 3
+
+
 # Printing arithmetic results
 echo "Sum: $sum"
 echo "Difference: $difference"
 
+
+#-------------------------------------------------------------------------------------------
 
 # Declaring an array
 my_array=("apple" "banana" "orange")

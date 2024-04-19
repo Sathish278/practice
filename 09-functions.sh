@@ -2,6 +2,16 @@
 
 USERID=$(id -u) # to find the user id / -u for user
 
+status (){
+    if [ $1 -ne 0 ]; then
+    echo "$2 installation.... failed"
+    exit 1
+else
+    echo " $2 installation..... sucessed"
+fi
+
+}
+
 if [ $USERID -ne 0 ]; then
     echo "Please run with sudo user"
     exit 1 #manually exiting from the script
@@ -12,10 +22,6 @@ fi
 
 dnf install mysql -y
 
-if [ $? -ne 0 ]; then
-    echo "installation of mysql.... failed"
-    exit 1
-else
-    echo " installation of mysql..... sucessed"
-fi
+status $1 "mysql"
+
 
