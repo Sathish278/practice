@@ -48,7 +48,9 @@ curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expe
 status $? "downloading frontend"
 
 cd /usr/share/nginx/html &>>$Logfile
-status $? "coppied nginx service"
+
+cp /home/ec2-user/practice/expense.conf /etc/nginx/default.d/expense.conf &>>$Logfile
+status $? "coppied backend service"
 
 unzip /tmp/frontend.zip &>>$Logfile
 status $? "extracting frontend"
