@@ -44,7 +44,7 @@ status $? "Starting....$Inst"
 
 #sudo mysql_secure_installation --set-root-pass ExpenseApp@1 &>>"$Logfile"
 #status $? "Securing MySQL installation"
-echo "Please enter db passowrd..."
+echo -e "$R Please enter db passowrd... $NC"
 read -s mysql_root_password
 #Below code will be work as idempotent nature
  mysql -h db.sathishreddy.online -uroot -p${mysql_root_password} -e 'SHOW DATABASES;' &>>$Logfile
