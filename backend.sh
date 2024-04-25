@@ -79,7 +79,7 @@ status $? "Enable backend service"
 dnf install mysql -y &>>$Logfile
 status $? "Installing mysql-client"
 
-mysql -h <db.sathishreddy.online> -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$Logfile
+mysql -h db.sathishreddy.online -uroot -p${mysql_root_password} < /app/schema/backend.sql &>>$Logfile
 status $? "Schema loading"
 
 systemctl restart backend&>>$Logfile
