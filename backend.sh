@@ -64,7 +64,7 @@ status $? "Excracted backend code"
 npm install &>>$Logfile
 status $? "Installing nodejs dependencies"
 
-cd /home/ec2-user/practice/backend.service /etc/systemd/system/backend.service &>>$Logfile
+cp /home/ec2-user/practice/backend.service /etc/systemd/system/backend.service &>>$Logfile
 status $? "coppied backend service"
 
 systemctl daemon-reload &>>$Logfile
