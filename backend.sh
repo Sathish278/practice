@@ -13,7 +13,6 @@ Y='\e[0;33m'
 Bl='\e[0;34m'
 NC='\e[0m'
 
-Inst=$1 # which application has to install user has to give while executing the script
 #validation or status function
 status() {
     if [ $1 -ne 0 ]; then
@@ -57,6 +56,7 @@ curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expen
 status $? "Downloading backend code"
 
 cd /app &>>$Logfile
+rm -rf /app/*
 
 unzip /tmp/backend.zip &>>$Logfile
 status $? "Excracted backend code"
