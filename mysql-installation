@@ -36,14 +36,7 @@ fi
 dnf list installed | grep -i $Inst &>>$Logfile
 if [ $? -eq 0 ]; then
     echo -e "$G $Inst $NC already installed"
-    exit 1
-else
-    echo -e "$R $Inst $NC need to be install"
-    dnf install $Inst -y &>>$Logfile
-    status $? "$Inst...installing"
-fi
-
-systemctl enable mysqld &>>$Logfile
+    systemctl enable mysqld &>>$Logfile
 status $? "enabling....$Inst"
 
 systemctl start mysqld &>>$Logfile
@@ -62,3 +55,10 @@ else
     echo -e " password already setup...$Y skipping $NC"
 
 fi
+    exit 1
+else
+    echo -e "$R $Inst $NC need to be install"
+    dnf install $Inst -y &>>$Logfile
+    status $? "$Inst...installing"
+fi
+
