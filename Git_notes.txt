@@ -43,6 +43,14 @@ git reset --hard  --> will remove file from staged area and workspace
 git revert <commit ID>  ---> remote file from workspace and staged area and in local repo it will create a new commit file as the file is reverted
 git clean -n or -f (force)   --> to remove all untracked files
 
+------------------------------------------------
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin <github-path>
+git push -u origin main
+
 ----------------------------------------------------------------------------
 Common Options:
 -h, --help: Display help information for the command.
