@@ -1,0 +1,258 @@
+aws configure
+  -->aws access key ID
+  -->screct access key
+  
+go to terraform main.tf path
+
+terraform init
+
+terraform plan
+
+terraform apply
+
+terraform destroy  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+Hashicorp configure language
+
+code----
+
+provider "AWS" {
+	alias = "us-east-1"
+	region = "us-east-1"
+	
+}
+provider "AWS"{
+	alias = "us-west-1"
+	region = "us-west-1"
+}
+	
+	
+resource "aws_instance" "example"{
+	ami = "ami_ID"
+	instance_type= "t2.micro"
+	subnet_ID= "subnet_ID"
+	key_ID= "keypair_name"
+	provider = "aws.us-east-1"
+	
+}
+resource "aws_instance" "example1"{
+	ami = "ami_ID"
+	instance_type= "t2.micro"
+	subnet_ID= "subnet_ID"
+	key_ID= "keypair_name"
+	provider = "aws.us-east-2"
+}
+resource "aws_s3_bucket" "sathish"{
+	bucket = "sathish_123"
+}
+
+resource "aws_dynamodb_table" "terraform_lock"{
+	name = "terraform_lock"
+	billing_mode = " per request"
+	hash_key ="lockID"
+	
+	attribute{
+	name = "lockID"
+	type = "s"
+	}
+}
+		
+
+backend.tf
+
+terraform{
+	backend "s3"{
+		bucket ="sathish_123"
+		key = "path of s3"
+		state =" state file path"
+		region = "us-east-1"
+		dynamodb_table = "terraform_lock"
+		encrypt = true
+		lock = "lock"
+		}
+}
+
+main.tf
+
+provider "AWS"{
+		region = " us-east-1"
+}
+
+resource "AWS_ec2_instance" "example"{
+	instance_type = " t2.micro"
+	ami = "ami_ID"
+	subnet_ID = "subnet_ID"
+}
+resource "AWS_S3_bucket" "s3_bucket"{
+	bucket = "sathish_123"
+}
+resource "dynamodb_table" "terraform_lock"{
+	name = " terraform_lock"
+	billing_mode = " Pay_Per_Request"
+	state = " path of a statefile terraform.tfsate'
+	hash_key= "lockID"
+	
+	
+	attribute{
+	 name = "lockID"
+	 type = "s"
+	}
+}
+
+backend.tf
+
+terraform{
+	backend "s3"{
+		bucket = "sathish_123"
+		key = "sathish/terraform.tfsate"
+		region = "us-east-1"
+		encrypt = true
+		dynamodb_table = "terraform_lock"
+		state = "terraform.tfsate"
+		}
+}
+
+
+terraform with .tfvars
+
+main.tf
+------------------
+provider "AWS"{
+	region = " us-east-1"
+}
+
+variable "ami"{
+	description = "value"
+}
+
+variable "instance_type"{
+	description = "value"
+	type = map(string)
+	
+	default{
+	dev = "t2.micro"
+	stage = "t2.medium"
+	prod = "t2.xlarge"
+	}
+}
+
+module "ec2_instance"{
+	source = " ./modules/ec2_instance"
+	ami = var.ami
+	instance_type = lookup(var.instance_type , terraform.workspace, "t2.micro"
+}
+----------------------------------
+modules/ec2_instance	
+
+provider "aws"{
+	region = "us-east-1"
+}
+
+variable "ami"{
+	description = " ami for instance"
+}
+variable "instance_type" {
+	description = " instance_type for instance"
+}
+
+resource "aws_instance" "example"{
+	ami = var.ami
+	instance_type = var.instance_type
+}
+
+---------------------------------
+tfvars
+
+ami = "ami_ID"
+
+
+-------------
+main.tf
+
+provider "AWS"{
+	region = "us-east-1"
+}
+
+variable " instance_type"{
+	description = "value"
+}
+
+variable "ami"{
+	description = "value"
+}
+
+variable "instance_type"{
+	description = "value"
+	type = map(string)
+	
+	default{
+	dev = "t2.micro"
+	stage = "t2.medium"
+	prod = "t2.xlarge"
+	}
+}
+
+module "ec2_instance"{
+	source = " ./module/ec2_instance"
+	ami = var.ami
+	instance_type =lookup(var.instance_type, terraform.workspace, "t2.micro"
+)
+
+
+
+
+---------------------
+modules/ec2_instance
+
+main.tf
+
+provider "AWS" {
+	region = "us-east-1"
+}
+variable "ami"{
+ description = "ami for instance"
+}
+
+variable "instance_type"{
+	description = " instance_type for instance"
+}
+
+resource "aws_instance" "example"{
+	ami = var.ami
+	instance_type = var.instance_type
+}
+
+-----------------
+tfvars
+
+ami = "ami_ID"	
+
+
+
+Improt resource details fom AWS
+
+Provider  "AWS"{
+	region= "us-east-1"
+}
+
+improt{
+	ID = "AWS_ec2_instance-ID"
+	
+	to = "AWS_ec2_instance.example
+}
+
+run command - terraform plan -generate-config-out =generate_resource.tf
+
+

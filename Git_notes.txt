@@ -48,7 +48,7 @@ git init
 git add README.md
 git commit -m "first commit"
 git branch -M main
-git remote add origin <github-path>
+git remote add origin https://github.com/Sathish278/terraform-multi-env.git
 git push -u origin main
 
 ----------------------------------------------------------------------------

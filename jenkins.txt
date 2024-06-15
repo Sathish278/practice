@@ -1,0 +1,35 @@
+pipeline
+-----------
+
+pipeline{
+
+	agent {
+	label 'windows'
+	}
+	environment {
+		name = 'sathish'
+
+	stages {
+
+		stage('hello'){
+		steps {
+			sh 'echo hello1'
+		}
+		
+		stage( ){
+		
+		}
+		
+		stage( ){
+		
+		}
+	}
+	post {
+		always {
+		}
+		success {
+		}
+		failure {
+			mail to: ambatisathishkumarreddy@gmail.com, subject: 'The Pipeline failed :('
+		}
+}

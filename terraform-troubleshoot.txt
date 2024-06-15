@@ -1,0 +1,14 @@
+terraform apply auto approve for expense
+
+for i in $(ls -d */) ; do echo ${i%/} ; cd ${i%/} ; terraform apply -auto-approve ; cd .. ; done
+
+terraform destroy auto approve
+
+for i in $(ls -dr */) ; do echo ${i%/} ; cd ${i%/} ; terraform destroy -auto-approve ; cd .. ; done
+
+for i in $(ls -d */) ; do echo ${i%/} ; cd ${i%/} ; terraform init -upgrade ; cd .. ; done
+
+for i in $(ls -d */) ; do echo ${i%/} ; cd ${i%/} ; terraform plan ; cd .. ; done
+
+
+for i in $(ls -d */) ; do echo ${i%/} ; cd ${i%/} ; terraform init; cd .. ; done

@@ -12,6 +12,12 @@ netstat -lntp
 check you are able to connect mysql or not
 mysql -h db.sathishreddy.online -u root -pExpenseApp@1
 
+terraform
+mysql -h db.sathishreddy.online -u root -pExpenseApp1
+to check the logs of ansible
+sudo su -
+cd /var/log/
+
 ps -ef | grep mysql
 mysql process is running or not
 
@@ -40,3 +46,6 @@ systemctl status nginx
 netstat -lntp --> port no 80
 
 telnet backend.sathishreddy.online 8080
+
+
+
